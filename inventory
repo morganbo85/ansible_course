@@ -1,7 +1,6 @@
 [web_servers]
 192.168.10.47 #ubuntu-svr
 192.168.10.100 #scr10
-192.168.10.20 #Fedora
 
 [db_servers]
 192.168.10.95 #svr08

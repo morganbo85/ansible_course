@@ -1,0 +1,20 @@
+- name: create a user
+  tags: always
+  ansible.builtin.user:
+    name: itst
+    groups: root
+
+- name: add sudoers file for itst
+  tags: always
+  ansible.builtin.copy:
+    src: sudoer_itst
+    dest: /etc/sudoers.d/itst
+    owner: root
+    group: root
+    mode: 0440
+
+- name: add ssh key for itst
+  tags: always
+  ansible.builtin.authorized_key:
+    user: itst
+    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB+n6OvlpdDHqF3gIdImtEYg1fiAZF8v1feXPPmpS1i1 bmorgan@unbuntu-ws"
