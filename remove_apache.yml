@@ -3,7 +3,7 @@
   become: true
   tasks:
 
-  - name: install apache2 package
+  - name: uninstall apache2 package
     ansible.builtin.package:
       name:
         - "{{ apache_package }}"
