@@ -1,4 +1,4 @@
-[web_servers]
+[apache]
 192.168.10.47 #ubuntu-svr
 192.168.10.100 #scr10
 192.168.10.20 #Fedora
