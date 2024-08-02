@@ -50,6 +50,22 @@
       state: started
     when: ansible_distribution == "Fedora"
 
+  - name: change email addres for admin
+    tags: apache,fedora
+    ansible.builtin.lineinfile:
+      path: /etc/httpd/conf/httpd.conf
+      regexp: '^ServerAdmin'
+      line: ServerAdmin someone@gmail.com
+    when: ansible_distribution == "Fedora"
+    register: httpd
+
+  - name: restart httpd (fedora)
+    tags: apache,fedora
+    ansible.builtin.service:
+      name: httpd
+      state: restarted
+    when: httpd.changed
+
   - name: copy html files for site
     tags: apache,ubuntu
     ansible.builtin.copy:
